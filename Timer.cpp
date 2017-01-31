@@ -7,6 +7,9 @@
 //
 
 #include "Timer.hpp"
+#include <iostream>
+
+using namespace std;
 
 Timer :: Timer()
 {
@@ -20,17 +23,18 @@ void Timer :: resetTimer()
 
 void Timer :: startTimer()
 {
-    
+    executionTime = clock();
 }
 
 void Timer :: stopTimer()
 {
-    
+    executionTime = clock() - executionTime;
 }
 
 void Timer :: displayTimerInfo()
 {
-    
+    cout << "The execution time is: " << executionTime << endl;
+    cout << "In human time it is " << executionTime/CLOCKS_PER_SEC << " seconds" << endl;
 }
 
 long Timer :: getExecutionTimeInMicroseconds()
